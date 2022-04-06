@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>이력서</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6790824b-41fb-48c3-9ef2-0b2409b9bfa3" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📃</span></div><h1 class="page-title">이력서</h1></header><div class="page-body"><div id="5335b89d-cbfe-47f2-b730-e9e8d34e0e81" class="column-list"><div id="a6ee9069-1ab9-4aab-b452-f1b41b738511" style="width:43.75%" class="column"><figure id="b9f4e11a-e43f-4f23-8f17-e6589c0c7094" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/%E1%84%89%E1%85%A5%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AE%E1%86%AB.jpg"><img style="width:276px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/%E1%84%89%E1%85%A5%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AE%E1%86%AB.jpg"/></a></figure></div><div id="992e941a-9849-4061-9fa7-6b3a19fd5d6d" style="width:56.25%" class="column"><table id="84c91d62-1826-424d-a63d-aba58ab78f0e" class="simple-table"><tbody><tr id="e047fab7-77a6-45c4-9588-4f718b192477"><td id="_l@X">BirthDay 🥳</td><td id=":@ZC">2004.06.06</td></tr><tr id="58879fcf-7514-4ca4-98ce-0c750daf4c52"><td id="_l@X">Email 📧</td><td id=":@ZC">lot8229@kakao.com</td></tr><tr id="95305f58-45f4-4bb4-962f-8b6059ff2dde"><td id="_l@X">Mobile 📱</td><td id=":@ZC">010-4827-8229</td></tr><tr id="398fd237-6d19-4e12-bbe6-d3352b4fc28d"><td id="_l@X">Address 🏠</td><td id=":@ZC">광주광역시 광산구 수완동</td></tr><tr id="b2aa668f-741b-4c95-bd43-c58737263dd7"><td id="_l@X">Contact  💌</td><td id=":@ZC"><a href="https://www.linkedin.com/in/%EC%B1%84%EC%9A%B4-%EC%84%9C-37532a230/">Linkedin</a> , <a href="https://www.rocketpunch.com/@caeun">로켓펀치</a>
+<span style="border-bottom:0.05em solid"><a href="https://www.instagram.com/ch_won90/">Instagram</a></span></td></tr></tbody></table></div></div><h1 id="2ddd2423-c864-4284-b892-4cf9a4075686" class="">서채운
+Cloud Engineer / DevOps</h1><p id="48098884-9faa-45e0-ac18-94f1e41ab338" class="">
+</p><h2 id="b866adba-c4c9-4d0a-978d-f442725f00fd" class=""><strong>소개 </strong><strong>/ About Me</strong></h2><p id="2e549f20-6321-496e-926f-277635f26729" class="">
+</p><ul id="7243e720-8393-4473-b779-b5b40d453e01" class="bulleted-list"><li style="list-style-type:disc">AWS 클라우드 시스템에 관심을 갖고 공부하고 있는 주니어 개발자 / 엔지니어 입니다.</li></ul><ul id="0a90dcc2-ff5e-4009-9193-cbefbd3747f7" class="bulleted-list"><li style="list-style-type:disc">무엇이든 전공 관련 공부라면 즐겁게 합니다.</li></ul><ul id="19db4238-1bea-4112-927a-0425c067db74" class="bulleted-list"><li style="list-style-type:disc">다양한 팀프로젝트를 통해 협업에 익숙합니다.</li></ul><ul id="716d74ec-a254-404d-8995-4d2124150d6e" class="bulleted-list"><li style="list-style-type:disc">Python , Django 로 벡엔드 개발을 공부하고 있습니다.</li></ul><ul id="18f7088c-97a7-49d1-8e27-a4419d03322b" class="bulleted-list"><li style="list-style-type:disc">인내 와 노력 을 함께 추구하며 발전하는 개발자 / 엔지니어 가 되겠습니다.</li></ul><p id="7dadfac2-4234-4aff-9404-577ab71439e6" class="">
+</p><h2 id="7c4dbea6-8f62-4b29-835e-b7e174670149" class=""><strong>기술</strong> <strong>스택 / Skill Set</strong></h2><table id="13c16e90-b039-48ec-a15e-1c3236433f69" class="simple-table"><thead><tr id="3468db93-0ade-4df3-ab54-78278722f1b1"><th id="mh|h" class="simple-table-header">구분</th><th id="G~ze" class="simple-table-header">Skill</th></tr></thead><tbody><tr id="7bede585-fb90-4a5d-95e0-f2d8a324a72f"><td id="mh|h">Programing Languages</td><td id="G~ze">Python ,  HTML5 , CSS3 </td></tr><tr id="a9084b50-2a4d-4897-bccb-01105540e2cf"><td id="mh|h">Framework/ Library</td><td id="G~ze">Django/DRF</td></tr><tr id="d828f2b9-cf3e-4265-9415-04fd8776862a"><td id="mh|h">Server</td><td id="G~ze">MongoDB , MySQL , Tomcat  </td></tr><tr id="d7c67e69-a886-4e78-8403-e6e898709efe"><td id="mh|h">Tooling/ DevOps</td><td id="G~ze">AWS  , GithubAction , Travis CI , Jenkins</td></tr><tr id="bfc6988d-4ef7-4435-a55e-d7a88b67b80a"><td id="mh|h">Environment</td><td id="G~ze"> Mac OS , Linux( ubuntu , Debian) , Windows , Pycharm , Datagrip</td></tr><tr id="483935c0-f1bd-4463-bd78-a9e361e4f5c6"><td id="mh|h">ETC</td><td id="G~ze">Jira , Notion , Slack , Discord </td></tr></tbody></table><h2 id="9cb2823d-6ff4-4b57-ba80-d1437230f40d" class=""><strong>사용경험은 없으나, 이론적 지식이 있는 Skill Set</strong></h2><table id="38e0aeae-d744-4c00-9b9f-c15459c612d7" class="simple-table"><thead><tr id="0fb04c84-4344-48af-90a0-068b3c3d1fe7"><th id="^pu}" class="simple-table-header">구분</th><th id="TE;j" class="simple-table-header">Skill</th></tr></thead><tbody><tr id="2792efe7-39d6-4112-bb79-4c3089644084"><td id="^pu}">Programing Languages</td><td id="TE;j">JavaScript(ES6) , Node-JS</td></tr><tr id="24c28b81-978e-4035-bfa6-af91636437b4"><td id="^pu}">Framework/ Library</td><td id="TE;j">Express.js</td></tr><tr id="d02b4d5f-9cbd-4b6e-aa8e-593052b7d776"><td id="^pu}">Server</td><td id="TE;j">Apache , Nginx</td></tr><tr id="e0cc8dca-174a-44a4-8c67-f5fa11c9f5eb"><td id="^pu}">Tooling/ DevOps</td><td id="TE;j">Docker , Docker-Compose , Kubernetes , ECR , ECS , EKS</td></tr><tr id="9f70384d-8393-4e97-b0bf-c343984b3fee"><td id="^pu}">ETC</td><td id="TE;j">Google Cloud Platfom , Naver Cloud Platform</td></tr></tbody></table><h1 id="1d0a3b12-c6ba-41fa-add3-e29f80dda7d6" class="">
+<strong>프로젝트 경험  </strong></h1><figure id="6d10ed14-0d63-4b0d-93ce-5ad0a9d17646" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Untitled.png"><img style="width:202px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Untitled.png"/></a></figure><h2 id="ea12808f-1fda-4966-b5b6-cb247da20e77" class="">EZY</h2><table id="2561b6af-9e26-4e84-bf3a-6b1017a8d568" class="simple-table"><tbody><tr id="54466e0d-728a-4439-a374-ee44cb2bcd29"><td id="Qa&lt;K">작업 기간</td><td id="_L[e">2021.1 ~ 2021.10</td></tr><tr id="65fb0517-ab01-42f3-8830-f5f7f6bda025"><td id="Qa&lt;K">인력 구성</td><td id="_L[e">BackEnd Developer 3명 , FrontEnd Developer 3명 , DevOps 2명 , Designer 1명 , IOS Developer 5명</td></tr><tr id="45bcbbd4-0644-45f5-a437-ea228bea991f"><td id="Qa&lt;K">주요업무 및 상세역할</td><td id="_L[e">- 서버 어플리케이션 배포 , CICD 시스템 구축 </td></tr><tr id="ea5b12ac-b48b-4c0c-abb4-383faae961ff"><td id="Qa&lt;K">사용언어 및 개발환경</td><td id="_L[e">AWS , Docker , Docker-Compose , Nginx , Grafana , Fluentd , Redis , CloudFlare , Jenkins , Amazon Linux AMI 2 , ubuntu</td></tr><tr id="1f1762d5-8292-4b0e-a563-25c0fb07ad1e"><td id="Qa&lt;K">느낀 점</td><td id="_L[e">처음 AWS 를 사용하며 인프라 엔지니어 로써 참여했던 프로젝트 입니다. 처음으로 AWS 를 이용한 프로젝트 였기 떄문에 많이 어설프고 배우는데 많은 시간이 걸렸지만 CICD 와 테스트 서버 배포를 성공적으로 마쳤습니다. </td></tr><tr id="21cba419-7e92-4054-b9f3-e8524a0d73eb"><td id="Qa&lt;K">참고자료</td><td id="_L[e"><a href="https://www.notion.so/a292b77aa219488e86578e37310e59f0">Notion</a> , <del><a href="https://www.official-ezy.com/">프로모션페이지</a></del> , <span style="border-bottom:0.05em solid"><a href="https://github.com/neulsom-EZY">GitHub</a></span></td></tr></tbody></table><ul id="2e318cdd-f361-4ff1-9068-18a5c17f6c77" class="bulleted-list"><li style="list-style-type:disc">아키텍쳐 구상도</li></ul><p id="9a4bb79e-ac8a-47b6-8928-3a1b8a1400af" class="">
+</p><figure id="e3927297-ce1b-4e9a-8d7c-9a42c6a38610" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/EZY.png"><img style="width:480px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/EZY.png"/></a></figure><p id="2b6950d4-35cb-4489-b55c-53669143bb0f" class="">
+</p><figure id="6b1d3ca2-f5b9-44d6-8144-a1c88c3587c3" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%A9%E1%86%AB_3.png"><img style="width:192px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%A9%E1%86%AB_3.png"/></a></figure><h2 id="ab355da9-3858-46f3-9ead-f240b93d30bc" class="">Welfare Tree</h2><table id="18d2a9e3-4303-47a6-b49d-2ca4c4ec4cfa" class="simple-table"><tbody><tr id="e5d9d379-0feb-40ba-8a01-28a9b5411a60"><td id="&gt;_m=">작업 기간</td><td id="_ffb">2021.1 ~ 2021.10</td></tr><tr id="6e77c53c-b431-4020-ab2b-5a2b859a72a3"><td id="&gt;_m=">인력 구성</td><td id="_ffb">BackEnd Developer 1명 , Android Developer 2명 , DevOps 1명 , 디자이너 1명</td></tr><tr id="316671bc-d5f4-479a-9ed4-49b3a7cca5c6"><td id="&gt;_m=">프로젝트 목적</td><td id="_ffb">Smart Teen App Chalenge 라는 대회에서 수상하기 위해서 프로젝트를 기획및 개발 하였습니다.</td></tr><tr id="a3d638bd-3970-44e7-932b-9e0f128367a8"><td id="&gt;_m=">주요업무 및 상세역할</td><td id="_ffb">- 이 프로젝트에서 데브옵스 엔지니어 및 팀장으로서 참여 했습니다.
+- 서버 어플리케이션 배포 , 모니터링 시스템 구축 , CICD 시스템 구축 </td></tr><tr id="156114ac-2007-4e3f-aa00-898d8b74035e"><td id="&gt;_m=">사용언어 및 개발환경</td><td id="_ffb">AWS , Docker , Nginx , Grafana , Fluentd , ElasticSearch , Jenkins , Amazon Linux AMI 2</td></tr><tr id="8989f4bc-2a84-471a-890a-13f8c83fe9b6"><td id="&gt;_m=">느낀 점</td><td id="_ffb">대회 를 진행하던중 저희가 사용할 Open API 가 리뉴얼에 들어가는 바람에 대회에서 지정한 개발 기간에 맞추지 못했습니다. 하지만 대회 기간은 끝났지만 현재 까지 개발 진행중입니다.
+이프로젝트 에서 느낀 점은 대회 진행 하는 도중에 생길수 있는 돌발 상화엥 잘 대처 할수 있는 능력을 키울수 있도록 해야하며 미리 API 나 자료를 사용 할때 꼼꼼하게 알아보고 사용할수 있도록 해야한다고 느꼇습니다.
+대회 의 성적은 본선 진출에 그쳤지만 단기간 프로젝트를 할떄 시간 분배의 대한 중요성을 느낀것 같습니다.
+처음으로 모니터링 서비스 및 CICD 구축을 했었던 프로젝트 입니다.</td></tr><tr id="908842f8-9139-426c-80c5-e482281b9889"><td id="&gt;_m=">참고자료</td><td id="_ffb"><a href="https://www.notion.so/4c0e1f0cfa034cfda380225b7463de48"><span style="border-bottom:0.05em solid">Notion</span></a> , <mark class="highlight-gray"><a href="https://play.google.com/store/apps/details?id=com.stac.welfaretree"><span style="border-bottom:0.05em solid">PlayStor</span></a></mark><mark class="highlight-gray"><span style="border-bottom:0.05em solid">e</span></mark> ,  <span style="border-bottom:0.05em solid"><a href="https://github.com/welfaretree">GitHub</a></span></td></tr></tbody></table><ul id="dee08e55-6d58-43b1-98e4-f1c7e452aaa6" class="bulleted-list"><li style="list-style-type:disc">아키텍쳐 구성도</li></ul><figure id="3c51cc04-7054-4e41-b178-8e769f290403" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Welfare-Tree.png"><img style="width:480px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Welfare-Tree.png"/></a></figure><figure id="fbd70dce-9e23-4c5d-afec-f62764c07613" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Untitled%201.png"><img style="width:240px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/Untitled%201.png"/></a></figure><h2 id="538ceed2-62ad-47b2-9e51-4d3a8de9f5c9" class="">The-moment</h2><table id="44562236-0956-4121-82a3-ae35c721545f" class="simple-table"><tbody><tr id="43264d5f-1ce8-47cf-bc8c-ab1fb63d6418"><td id="B`q=">작업기간</td><td id="aP\E">2021.6 ~ 2022.1</td></tr><tr id="a11a87ba-ddf9-4de7-ae3c-5f725db32ed5"><td id="B`q=">인력구성</td><td id="aP\E">BackEnd Developer 2명 , FrontEnd  Developer 6명 , DevOps 3명 , 디자이너 2명</td></tr><tr id="ff776c48-920c-4d81-8fc9-3091de6e9b06"><td id="B`q=">프로젝트 목적</td><td id="aP\E"><a href="https://www.notion.so/c09821c718e349a8920f56cd4f4f490a">학교가 불편한 순간은 무엇인가요?</a></td></tr><tr id="311b6a7c-7cd4-4fde-9286-9d29c20f923f"><td id="B`q=">주요업무 및 상세역할</td><td id="aP\E">- 기존 레거시 아키텍쳐 개선 및 AWS 인프라 서비스 관리
+- DNS 관리
+- CICD 구축 및 데브옵스 업무</td></tr><tr id="f0fc38da-0456-44ad-b1e8-59018c6ef97a"><td id="B`q=">사용언어 및 개발환경</td><td id="aP\E">AWS , CloudFlare , GIt </td></tr><tr id="fa215328-0934-4283-9c45-68b441431cac"><td id="B`q=">느낀점</td><td id="aP\E">처음으로 서비스 라는 것이 무엇이고 운영 의 중요성을 깨닳았던 프로젝트 입니다. 서비스를 운영하던 도중에 갖갖은 오류가 찾아왔었습니다. 이 오류 들을 방치하고 게으르게 행동 했었다면 운영에 많은 차질 이 생겼었을것 같다고 느꼇습니다. 이처럼 운영을 할땐 스피드와 정확성 이 생명이라고 생각 이 들었고 , AWS 아키텍쳐를 다시 구성 하는 도중에 처음엔 안정적이고 빠른 아키텍쳐를 구성해보자 라는 생각으로 왔지만 막상 요금 이라는 것에 막히고 말았습니다. 어떤 프로젝트를 하던 간에 인프라 비용은 저희 사비로 매월 꼬박 꼬박 내야하기 때문에 이점 을 마냥 무시하고 좋은 아키텍쳐 를 선택할순 없었습니다. 어쩔수 없이 최대한 비용은 아끼고 정상적으로 운영을 할수 있는 아키텍쳐로 구성을 하였고 정상적으로 운영했었습니다.</td></tr><tr id="662f07ee-2564-4acf-9d97-d75b55b08c49"><td id="B`q=">참고자료</td><td id="aP\E"><span style="border-bottom:0.05em solid"><a href="https://github.com/themoment-team/Dufourspitze-Infra">GitHub</a></span> , <del><a href="http://The-moment.org">The-moment.org</a></del> (서비스 종료) ,  </td></tr></tbody></table><ul id="758311bb-4462-4cee-a5f4-ba7429a54de6" class="bulleted-list"><li style="list-style-type:disc">아키텍쳐 구상도<figure id="db7dc4e0-724d-4b22-8095-233971b8c783" class="image"><a href="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/the-moment.png"><img style="width:731px" src="%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5%20b9f4e/the-moment.png"/></a></figure></li></ul><p id="382f626d-1d1a-42fc-8125-a497dc42b632" class="">
+</p><h2 id="d9329983-d4fe-4ffe-871b-92bc71e54492" class=""><strong>학력</strong></h2><ul id="5e35fac4-c6b2-45fb-8053-e4ef77a6f610" class="bulleted-list"><li style="list-style-type:disc">2020.03 ~ 2023.01 광주소프트웨어마이스터 고등학교 졸업 예정</li></ul><h2 id="23a0e2fe-186a-4a63-b091-a25b2b71774c" class=""><strong>자격증</strong></h2><ul id="34efad1e-9a3a-425b-b578-3f9e9197f4ad" class="bulleted-list"><li style="list-style-type:disc">토익 550 (2021. 08 취득)</li></ul><ul id="c16f62a6-aba0-4dd6-b714-5c808554a2b0" class="bulleted-list"><li style="list-style-type:disc">AWS Certified Cloud Practitioner (2021. 12 취득)</li></ul><h2 id="c05a01fc-f9b3-4243-a0b7-f8d6ab14c588" class="">
+<strong>활동</strong></h2><h3 id="1d4e6ab2-c6ea-4764-a874-ac737d754f6b" class="">🖥️   해커톤</h3><hr id="758dd2ab-0ea5-43d7-a3b1-b38dcf5b49f0"/><ul id="bc0ba401-9181-4076-98db-07267f7fd4ea" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.11.22 ~ 2021.11.24</mark> - SW마이스터 4개교 연합 해커톤  - 인기상</li></ul><ul id="33b54b79-85b4-4b97-a1f3-22a74d954207" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.09 ~ 2021.09</mark> - 교내 전공동아리 해커톤 대회</li></ul><ul id="5dd10572-49d8-43e6-9a59-77d3c2576963" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.09 ~ 2020.09</mark> - 교내 전공동아리 해커톤 대회</li></ul><p id="bba5b4f0-83b0-4e63-b4bd-64ca50f9b0f9" class="">
+</p><h3 id="3e6aab50-e104-489f-8f0b-4ce3b0085735" class="">👨   교육 / 연수</h3><hr id="4d74d6b5-daf7-4fa2-b6a1-48a4c17e67b2"/><ul id="98a60d2c-4b71-4d99-96cb-75378704925d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.07</mark> - <strong>여름방학 웹 전공캠프 </strong><ul id="2b4105e6-7d90-4804-8db4-f1e48b8d646b" class="bulleted-list"><li style="list-style-type:circle">GIt, HTML&amp;CSS</li></ul></li></ul><ul id="10beb7ce-ec23-4f1f-ba78-a2c63a4a6b31" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.07</mark> - <strong>여수 전공캠프</strong><ul id="73e007e3-921c-43f2-ba72-ef674bca2bf7" class="bulleted-list"><li style="list-style-type:circle">생활코딩 이고잉(Egoing)선생님과 함께하는 HTML,CSS,JS를 이용한 Web구현</li></ul></li></ul><ul id="1f5fd119-6bd1-4d04-b6ea-48ff39684096" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.08</mark> - <strong>여수 AR/VR캠프</strong><ul id="95a488ed-a7bf-4875-bdd1-d8d781b251fa" class="bulleted-list"><li style="list-style-type:circle">AR/VR 체험</li></ul></li></ul><ul id="23f6904d-8110-49ca-a0ad-b8b827fee082" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.10</mark> <mark class="highlight-gray">~ 2020.12</mark> - <strong>광주인공지능사관학교</strong><ul id="d46951bd-fabf-4c3d-881d-7f63caa34a8e" class="bulleted-list"><li style="list-style-type:circle">광주문화산업진흥원에서 지원한 인공지능사관학교 -<strong> AI기초</strong> </li></ul></li></ul><ul id="f196ab4a-f8bc-4754-a5ab-5660bf1f89db" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.04</mark> - <strong>광주공고 공동실습소 </strong><ul id="36aef60c-f93e-47cf-b9e5-304f7fdfcd6e" class="bulleted-list"><li style="list-style-type:circle">모터제어, 자율주행, IOT(사물인터넷) 수업 수료</li></ul></li></ul><ul id="34d40b17-f28d-4853-a711-75c4ab5a2752" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.05</mark> - <strong>스피치 특강</strong><ul id="fc244b6c-8924-407f-ad43-b8e2020a955a" class="bulleted-list"><li style="list-style-type:circle">발표 역량을 키우기 위한 교내 스피치 특강</li></ul></li></ul><ul id="2725a9ec-7250-4346-9cb2-d8323ef06bd8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.07</mark> - <strong>교내 전공캠프</strong><ul id="f1fa4dd2-af3a-4b5c-9421-60e63adb399d" class="bulleted-list"><li style="list-style-type:circle">SQL 문법과 jsp 활용</li></ul></li></ul><ul id="db14d671-b68e-47fa-8adc-6f8db2bc999a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.07</mark> - <strong>SWEET 2021 신재생에너지 박람회</strong><ul id="ca9f99f3-2285-4cc6-af93-b5656b61e328" class="bulleted-list"><li style="list-style-type:circle">신재생에너지 기술을 보유한 회사들의 기술 관람</li></ul></li></ul><ul id="22439934-2238-4354-9e51-2ca664354fe2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.10</mark> - <strong>Intel과 함께하는 AI드론</strong><ul id="ea97a267-4fe9-4bc4-adb8-585aaaa81ee5" class="bulleted-list"><li style="list-style-type:circle">광주 비엔날레관에서 AI를 이용해 드론을 조종함</li></ul></li></ul><ul id="ab846efb-cdf1-4339-a7ad-e1a30f968cee" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.12</mark> - <strong>AICON 광주 2021</strong><ul id="188e91f4-5862-4536-9a70-23ab3b2b7883" class="bulleted-list"><li style="list-style-type:circle">AI 기술을 보유한 회사들의 기술과 작품 관람</li></ul><p id="0d94ce12-5ca3-4b78-8d09-13a87ec21c14" class="">
+</p></li></ul><h3 id="28e18cb8-0e9e-4d3a-9484-e5767194e1bb" class="">🏆  대회 / 공모</h3><hr id="cae752a0-ef75-4206-9195-be6bb21287cb"/><ul id="61044f6b-5faa-40f0-aa11-989fb3021ef5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.04 ~ 2021.09 - </mark>STA+C(Smarteen App Challenge) - <mark class="highlight-blue"><strong>가작상</strong></mark></li></ul><ul id="5adfc597-2c20-4197-8ef2-f395fce91ee8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2021.04</mark> - 지방기능경기대회 아이티네트워크 종목 - <mark class="highlight-teal">장려상</mark> </li></ul><ul id="f5d5dd57-a07d-4f88-837e-f1f80522be48" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.10 ~ 2020.11 </mark>- 제 7회 한전kdn 빛가람 에너지밸리 SW경진대회 - <mark class="highlight-teal">장려상</mark></li></ul><ul id="9a0bb04b-b3eb-44c8-97de-1076edf261fd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">2020.08 ~ 2020.09</mark> - 2020 삼성전자 주니어 SW 창작대회</li></ul><p id="12935555-3036-412c-b972-d0f06be8d5c0" class="">
+</p><h2 id="882f3364-05d0-48be-ba02-358e61e2c672" class="">🙋🏻‍♂️ 자기소개서</h2><h3 id="b2ec525e-0eff-4a48-8aeb-2e18d7f832d2" class="">1. 개발자로 성장하고 싶은 이유</h3><p id="bf915223-3c38-4661-91b9-1e0d71950a91" class="">저는 행복한 삶을 살기 위해서 개발자로 성장하고 싶습니다.</p><p id="e75eb293-ef2c-4044-a258-637e277c2035" class="">저는 DevOps 역할로 프로젝트를 진행하는 도중에  발생하는 오류는 힘들었지만, 이것 또한 저에게는 하나의 경험이라고 생각하고 다양한 방법으로 해결하며 재미있게 공부를 해왔습니다. 오류 가 나고 이를 다시 고치는 부분 등 다양한 방면에서 DevOps 라는 역할에 매력을 느끼며 재미있게 공부했습니다. 특히 어떤 아키텍처를 구성하고 이를 완성 후 정상적으로 아무런 에러 발생 없이 정상적으로 작동을 하는 것은 성취감을 매우 느끼도록 해주었습니다..  개발자를 하게 되고 프로젝트를 진행하게 되면서 이러한 공부들을 즐겁게 할 수 있었고 저는 성장과 함께 공부를 하면서 성장으로 느끼는 즐거움 또한 좋았습니다. 또한 점점 사용할 수 있는 서비스와 도구들이 늘어남에 따라 그 성취감도 배가 되었습니다. </p><p id="5a3768a6-5de3-4b81-9346-d22b065d6492" class="">이렇게 다양한 활동들을 직접 경험하면서 즐겁게 공부와 일을 동시에 병행하는 개발자가 저에게 맞다고 확신이 들었고, 개발자가 된 이후에  많은 친구들이 개발의 즐거움과 DevOps 라는 역할의 매력을  중고등학교 때부터 쉽게 접할 수 있도록 다양한 컨텐츠를 만들어보고 싶습니다.</p><p id="2b339a90-370f-4342-ba3c-07cd9cc52f23" class="">
+</p><h3 id="7c00438b-6bc0-4a95-bd60-8a04187c366a" class="">2. 성장 계획</h3><p id="e06a3ab2-f2c4-4406-916f-5afd652928a5" class="">저는 앞으로 서버 개발 및 관련 개발 능력을 증진 시킬수 있도록 할것이고 이러한 노력이 나중에 미래의 행복한 DevOps 개발자 되기 위한 노력과 같다고 생각이 듭니다.</p><p id="4cacd92e-0fa5-4ef3-8c91-5e08ab79257d" class="">저는 친구들에게 인간 로그라는 말을 듣습니다. 제가 아키텍처 구성하는 과정 을 남들과 공유해왔고,제가 구성하면서 어려웠던 부분을 핸즈온 형식으로 정리했습니다. 제가 이제까지 봐왔던 많은 블로그에서 느낀 점을 바탕으로 최대한 사용자들이 이를 보고 따라 하는데 어려움이 없도록 정리했었고 구축하는 동안에 생기는 오류 및 주의 할 점도 따로 명시해놨습니다.</p><p id="cb4b4461-025b-4b44-999a-4cb5153fef9d" class="">저는 앞으로 프로젝트 나 업무를 처리할 때 발생하는 오류를 매번 기록하고 오류를 다시 마주칠 때 당황하지 않고 유연하게 처리할 수 있는 능력을 키우겠습니다. 그리고 나아가선 로그를 머리로 기록하여 봤던 오류를 다시는 잊지 않고 기억하여 제가 썼던 기록을 보지 않고 오류를 유연하게 처리할 수 있는 단계까지 나아가고 싶습니다.</p><p id="764ef744-ebf6-40c6-a2e8-76d1d0d4698e" class=""> </p></div></article></body></html>
